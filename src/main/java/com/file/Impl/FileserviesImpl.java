@@ -1,5 +1,6 @@
 package com.file.Impl;
 
+import io.github.pixee.security.Filenames;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,7 +23,7 @@ public class FileserviesImpl implements FileServies {
 	public String uploadImage(String path, MultipartFile file) throws IOException {
 		
 		//file name
-		String name=file.getOriginalFilename();
+		String name=Filenames.toSimpleFileName(file.getOriginalFilename());
 		
 		//full parth
 		String filePath=path + File.separator+name;
